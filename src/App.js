@@ -17,7 +17,7 @@ const App = () => {
     axios.post('http://localhost:3000/PostIts', data)
     .then((response) => {
       let newPostIts = [...postits, response.data]
-      setAnimals(newPostIts)
+      setPostIts(newPostIts)
     })
   }
 
@@ -27,12 +27,12 @@ const App = () => {
       let newPostIts = postits.map((postit) => {
         return newPostIts._id !== data._id ? newPostIts : data
       })
-      setAnimals(newPostIts)
+      setPostIts(newPostIts)
     })
   }
 
   const handleDelete = (deletedPostIt) => {
-    axios.delete('http://localhost:3000/postits/' + deletedAnimal._id)
+    axios.delete('http://localhost:3000/postits/' + deletedPostIt._id)
     .then((response) => {
       let newPostIts = postit.filter((postits) => {
         return postit._id !== deletedPostIt._id
@@ -43,7 +43,7 @@ const App = () => {
 
   const getPostIts = () => {
     axios.get('http://localhost:3000/postits')
-    .then((response) => setAnimals(response.data), (err) => console.log(err))
+    .then((response) => setPostIts(response.data), (err) => console.log(err))
     .catch((error) => console.log(error))
   }
 
@@ -57,7 +57,7 @@ const App = () => {
 
       <Add handleCreate={handleCreate}/>
 
-      {postits.map((PostIt) => {
+      {PostIts.map((PostIt) => {
         return (
           <>
             <PostIt postit={postit} handleEdit={handleEdit}/>

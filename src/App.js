@@ -17,7 +17,7 @@ const App = () => {
     axios.post('http://localhost:3000/PostIts', data)
     .then((response) => {
       let newPostIts = [...PostIts, response.data]
-      setPostIts(newPostIts)
+      SetPostIts(newPostIts)
     })
   }
 
@@ -27,7 +27,7 @@ const App = () => {
       let newPostIts = PostIts.map((PostIt) => {
         return newPostIts._id !== data._id ? newPostIts : data
       })
-      setPostIts(newPostIts)
+      SetPostIts(newPostIts)
     })
   }
 
@@ -43,7 +43,7 @@ const App = () => {
 
   const getPostIts = () => {
     axios.get('http://localhost:3000/postits')
-    .then((response) => setPostIts(response.data), (err) => console.log(err))
+    .then((response) => SetPostIts(response.data), (err) => console.log(err))
     .catch((error) => console.log(error))
   }
 
@@ -62,7 +62,7 @@ const App = () => {
           <>
             <PostIt postit={PostIt} handleEdit={handleEdit}/>
             <Edit postit={PostIt} handleEdit={handleEdit}/>
-            <Button variant='btn btn-outline-info' onClick={ () => {handleDelete(postit) } }>Remove Post It</Button>
+            <Button variant='btn btn-outline-info' onClick={ () => {handleDelete(PostIt) } }>Remove Post It</Button>
           </>
         )
       })}

@@ -26,7 +26,6 @@ const Edit = (props) => {
                 <br/></li>
                 <li><label htmlFor='image'>Note: </label>
                 <input type='text' name='note' onChange={handleChange}/></li>
-                <Button variant='btn btn-success' type="submit">Submit</Button>
                 </ul>
             </form>
         </details>

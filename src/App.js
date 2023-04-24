@@ -16,7 +16,7 @@ const App = () => {
 
     axios.post('http://localhost:3000/PostIts', data)
     .then((response) => {
-      let newPostIts = [...postits, response.data]
+      let newPostIts = [...PostIts, response.data]
       setPostIts(newPostIts)
     })
   }
@@ -24,7 +24,7 @@ const App = () => {
     const handleEdit = (data) => {
     axios.put('http://localhost:3000/postits/' + data._id, data)
     .then((response) => {
-      let newPostIts = postits.map((postit) => {
+      let newPostIts = PostIts.map((PostIt) => {
         return newPostIts._id !== data._id ? newPostIts : data
       })
       setPostIts(newPostIts)
@@ -34,8 +34,8 @@ const App = () => {
   const handleDelete = (deletedPostIt) => {
     axios.delete('http://localhost:3000/postits/' + deletedPostIt._id)
     .then((response) => {
-      let newPostIts = postit.filter((postits) => {
-        return postit._id !== deletedPostIt._id
+      let newPostIts = PostIt.filter((PostIts) => {
+        return PostIt._id !== deletedPostIt._id
       })
       SetPostIts(newPostIts)
     })
@@ -60,8 +60,8 @@ const App = () => {
       {PostIts.map((PostIt) => {
         return (
           <>
-            <PostIt postit={postit} handleEdit={handleEdit}/>
-            <Edit postit={postit} handleEdit={handleEdit}/>
+            <PostIt postit={PostIt} handleEdit={handleEdit}/>
+            <Edit postit={PostIt} handleEdit={handleEdit}/>
             <Button variant='btn btn-outline-info' onClick={ () => {handleDelete(postit) } }>Remove Post It</Button>
           </>
         )

@@ -18,13 +18,13 @@ const Edit = (props) => {
             <summary>Edit Post It</summary>
             <form onSubmit={handleSubmit}>
             <ul>
-            <li><label htmlFor='date'>Date: </label>
+            <li><label htmlFor='date'>Date </label>
                 <input type='text' name='date' onChange={handleChange}/>
                 <br/></li>
-                <li><label htmlFor='time'>Time: </label>
+                <li><label htmlFor='time'>Time </label>
                 <input type='text' name='time' onChange={handleChange}/>
                 <br/></li>
-                <li><label htmlFor='image'>Note: </label>
+                <li><label htmlFor='image'>Note </label>
                 <input type='text' name='note' onChange={handleChange}/></li>
                 </ul>
             </form>

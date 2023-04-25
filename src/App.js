@@ -52,7 +52,7 @@ const App = () => {
   })
 
   return (
-    <div>
+    <div className='mainDiv'>
       <h2 className='font'>Post Its</h2>
 
       <Add handleCreate={handleCreate}/>
